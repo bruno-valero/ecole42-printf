@@ -6,11 +6,11 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:14 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 09:04:49 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:10:59 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 int	ft_printf(char *str, ...)

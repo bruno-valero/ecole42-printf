@@ -6,11 +6,11 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:33 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 08:24:04 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:10:25 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 static char	*basic_flags_tranlation(char *flag, va_list args);

@@ -1,7 +1,7 @@
-NAME = libprintf.a
+NAME = libftprintf.a
 LIBFT = libft/libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I &(LIBFT)
+CFLAGS = -Wall -Wextra -Werror -I . -I libft
 
 SRCS = conversion_ntoa_support.c\
 	conversion_ntoa.c\
@@ -21,17 +21,15 @@ $(LIBFT):
 
 $(NAME): $(PF_OBJS) $(LIBFT)
 	@$(eval LIBFT_OBJS := $(shell ar -t $(LIBFT)))
-	@ar rcs $(NAME) $(OBJ) $(addprefix libft/, $(LIBFT_OBJS))
+	@ar rcs $(NAME) $(PF_OBJS) $(addprefix libft/, $(LIBFT_OBJS))
 
 clean:
-	@rm -rf *.o
-
-clean:
-	@rm *.o
+	@rm -f $(PF_OBJS)
 	@make -C libft clean
 
 fclean: clean
-	rm *.a
+	@rm -f $(NAME)
 	@make -C libft fclean
 
-re:
+re: fclean all
+

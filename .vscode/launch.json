@@ -1,25 +1,25 @@
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "(gdb) Launch",
-			"type": "cppdbg",
-			"request": "launch",
-			"program": "${workspaceFolder}/a.out", // Replace with your executable path
-			"args": [],
-			"stopAtEntry": true,
-			"cwd": "${workspaceFolder}",
-			"environment": [],
-			"externalConsole": false,
-			"MIMode": "gdb",
-			"miDebuggerPath": "/usr/bin/gdb", // Replace with your GDB path if different
-			"setupCommands": [
-				{
-					"description": "Enable pretty-printing for gdb",
-					"text": "-enable-pretty-printing",
-					"ignoreFailures": true
-				}
-			]
-		}
-	]
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "name": "C++ Launch (GDB)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/a.out", // Path to your executable
+            "args": [], // Command-line arguments for your program
+            "stopAtEntry": false, // True to stop at the program's entry point
+            "cwd": "${workspaceFolder}", // Working directory for the program
+            "environment": [], // Environment variables to set
+            "externalConsole": true, // Whether to use an external console for output
+            "MIMode": "gdb", // Specifies GDB as the debugger
+            "miDebuggerPath": "/usr/bin/gdb", // Path to your GDB executable
+            "setupCommands": [ // Optional GDB commands to run before debugging
+                {
+                    "description": "Enable pretty printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
 }

@@ -53,7 +53,7 @@ all: $(NAME)
 
 bonus: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(BONUS_OBJ)
 	ar rcs $@ $^
 
 %.o: %.c
@@ -63,15 +63,11 @@ bonus:
 		@$(MAKE) OBJ="$(OBJ) $(BONUS_OBJ)" all
 
 clean:
-	rm -rf *.o
+	@rm -rf *.o
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
-
-so: clean
-	$(CC) -fPIC $(CFLAGS) -c $(FUNCTIONS)
-	$(CC) -shared -o libft.so $(OBJ)
 
 .PHONY: all clean fclean re so

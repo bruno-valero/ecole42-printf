@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 05:27:04 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 08:45:01 by brunofer         ###   ########.fr       */
+/*   Created: 2025/07/29 13:33:15 by brunofer          #+#    #+#             */
+/*   Updated: 2025/07/29 13:34:37 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
 # include <stdarg.h>
 
 typedef struct param_data
@@ -19,6 +20,7 @@ typedef struct param_data
 	char	*content;
 	int		length;
 	int		is_end_line;
+	int		is_error;
 }			t_flag_translation;
 
 void	*free_str_array(char **strarr, int idx);
