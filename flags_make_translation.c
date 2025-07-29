@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flags_make_translation.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 05:26:33 by brunofer          #+#    #+#             */
+/*   Updated: 2025/07/29 05:30:05 by brunofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 #include "libft.h"
 
@@ -33,6 +45,7 @@ static char	*basic_flags_tranlation(char *flag, va_list args)
 	if (!ft_strncmp("%%", flag, flag_len))
 		return (ft_strdup("%"));
 }
+
 static char	*char_to_str(char c)
 {
 	return (ft_strdup(&c));

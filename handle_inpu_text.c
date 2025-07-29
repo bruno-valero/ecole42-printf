@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_inpu_text.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 05:26:48 by brunofer          #+#    #+#             */
+/*   Updated: 2025/07/29 05:27:44 by brunofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "printf.h"
 #include "libft.h"
 
-static flag_translation	*translate_flag(char *str, va_list args);
+static t_flag_translation	*translate_flag(char *str, va_list args);
 
 char	*handle_input_text(char *str, va_list args, int *print_count)
 {
 	int					i;
-	flag_translation	*translation;
+	t_flag_translation	*translation;
 
 	i = -1;
 	while (str[++i])
@@ -25,14 +37,14 @@ char	*handle_input_text(char *str, va_list args, int *print_count)
 	}
 }
 
-static flag_translation	*translate_flag(char *str, va_list args)
+static t_flag_translation	*translate_flag(char *str, va_list args)
 {
-	flag_translation	*translation;
+	t_flag_translation	*translation;
 	char				*corresponding_flag;
 	char				*flag_translated;
 
 	corresponding_flag = NULL;
-	translation = ft_calloc(1, sizeof(flag_translation));
+	translation = ft_calloc(1, sizeof(t_flag_translation));
 	if (!is_valid_flag(str))
 	{
 		translation->content = "%";

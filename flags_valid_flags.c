@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flags_valid_flags.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 05:26:29 by brunofer          #+#    #+#             */
+/*   Updated: 2025/07/29 05:29:52 by brunofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "libft.h"
 #include "printf.h"
@@ -18,14 +30,16 @@ int	is_valid_flag(char *flag)
 	while (flags[len_flags])
 	{
 		if (!is_valid)
-			is_valid = !!ft_strnstr(flag, flags[len_flags], ft_strlen(flags[len_flags]));
+			is_valid = !!ft_strnstr(
+					flag, flags[len_flags], ft_strlen(flags[len_flags])
+					);
 		len_flags++;
 	}
 	free_str_array(flags, len_flags - 1);
 	return (is_valid);
 }
 
-char	**get_valid_flags()
+char	**get_valid_flags(void)
 {
 	int		len_flags;
 	char	**flags;
@@ -45,7 +59,7 @@ char	**get_valid_flags()
 
 static int	join_flags(char **flags, char **complete_flags)
 {
-	int idx;
+	int	idx;
 
 	idx = -1;
 	while (flags[++idx])
@@ -74,7 +88,7 @@ void	*free_str_array(char **strarr, int idx)
 
 int	str_array_len(char **strarr)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (strarr[len])

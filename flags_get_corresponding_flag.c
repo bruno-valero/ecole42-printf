@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   flags_get_corresponding_flag.c                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 05:26:36 by brunofer          #+#    #+#             */
+/*   Updated: 2025/07/29 05:30:45 by brunofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "printf.h"
 
-static void	compare_flags(char **flags, char *flag, int *corresponding_flag_idx, int *len_array_flags);
+static void	compare_flags(char **flags, char *flag,
+				int *corresponding_flag_idx, int *len_array_flags);
 
 char	*get_corresponding_flag(char *flag)
 {
@@ -18,7 +31,8 @@ char	*get_corresponding_flag(char *flag)
 	return (flags[corresponding_flag_idx]);
 }
 
-static void	compare_flags(char **flags, char *flag, int *corresponding_flag_idx, int *len_array_flags)
+static void	compare_flags(char **flags, char *flag,
+				int *corresponding_flag_idx, int *len_array_flags)
 {
 	int	len_current_flag;
 	int	len_corresponding_flag;
@@ -28,7 +42,9 @@ static void	compare_flags(char **flags, char *flag, int *corresponding_flag_idx,
 	{
 		len_current_flag = ft_strlen(flags[*len_array_flags]);
 		len_corresponding_flag = ft_strlen(flags[*corresponding_flag_idx]);
-		is_current_flag_valid = !!ft_strnstr(flag, flags[*len_array_flags], len_current_flag);
+		is_current_flag_valid = !!ft_strnstr(
+				flag, flags[*len_array_flags], len_current_flag
+				);
 		if (is_current_flag_valid && len_corresponding_flag < len_current_flag)
 			*corresponding_flag_idx = *len_array_flags;
 		(*len_array_flags)++;

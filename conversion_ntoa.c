@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conversion_ntoa.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/29 05:26:39 by brunofer          #+#    #+#             */
+/*   Updated: 2025/07/29 05:30:58 by brunofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "printf.h"
 
@@ -27,7 +39,7 @@ char	*itoa_base(int nbr, char *base)
 	if (is_negative)
 		result[0] = '-';
 	result[len_nbr] = '\0';
-	return(result);
+	return (result);
 }
 
 char	*utoa_base(unsigned int nbr, char *base)
@@ -45,7 +57,7 @@ char	*utoa_base(unsigned int nbr, char *base)
 		return (NULL);
 	handle_base(result, base, len_nbr, (unsigned long)nbr);
 	result[len_nbr] = '\0';
-	return(result);
+	return (result);
 }
 
 char	*ultoa_base(unsigned long nbr, char *base)
@@ -63,7 +75,7 @@ char	*ultoa_base(unsigned long nbr, char *base)
 		return (NULL);
 	handle_base(result, base, len_nbr, nbr);
 	result[len_nbr] = '\0';
-	return(result);
+	return (result);
 }
 
 char	*ptoa(va_list args)
