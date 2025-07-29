@@ -1,20 +1,37 @@
-NAME = libft_printf.a
-LIBFT = libft/
+NAME = libprintf.a
+LIBFT = libft/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I &(LIBFT)
-PF_OBJS
 
-all: $(NAME) $(LIBFT)
+SRCS = conversion_ntoa_support.c\
+	conversion_ntoa.c\
+	flags_get_corresponding_flag.c\
+	flags_valid_flags.c\
+	ft_printf.c\
+	print.c\
+	text_input_translation_support.c\
+	text_input_translation.c
 
-$(NAME): $(PF_OBJS)
+PF_OBJS = $(SRCS:.c=.o)
+
+all: $(LIBFT) $(NAME)
+
+$(LIBFT):
+	@make -C libft
+
+$(NAME): $(PF_OBJS) $(LIBFT)
+	@$(eval LIBFT_OBJS := $(shell ar -t $(LIBFT)))
+	@ar rcs $(NAME) $(OBJ) $(addprefix libft/, $(LIBFT_OBJS))
 
 clean:
-	rm -rf *.o
+	@rm -rf *.o
 
 clean:
-	make -C ./libft clean
-	rm *.c
+	@rm *.o
+	@make -C libft clean
 
 fclean: clean
-	make -C ./libft fclean
 	rm *.a
+	@make -C libft fclean
+
+re:

@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:39 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 07:34:47 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 12:31:25 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,15 @@ char	*ultoa_base(unsigned long nbr, char *base)
 char	*ptoa(va_list args)
 {
 	void	*ptr_value;
+	char	*hex_number;
+	char	*result;
 
 	ptr_value = NULL;
 	ptr_value = va_arg(args, void *);
 	if (!ptr_value)
 		return (ft_strdup("(nil)"));
-	return (ultoa_base((unsigned long)ptr_value, "0123456789abcdef"));
+	hex_number = ultoa_base((unsigned long)ptr_value, "0123456789abcdef");
+	result = ft_strjoin("0x", hex_number);
+	free(hex_number);
+	return (result);
 }
