@@ -1,43 +1,48 @@
 #include "printf.h"
 #include "libft.h"
 
-static data_to_print	*translate(char *str, va_list args);
+static flag_translation	*translate_flag(char *str, va_list args);
 
 char	*handle_input_text(char *str, va_list args, int *print_count)
 {
-	int				i;
-	data_to_print	*data;
+	int					i;
+	flag_translation	*translation;
 
 	i = -1;
 	while (str[++i])
 	{
 		if (str[i] == '%')
 		{
-			data = translate(&str[i], args);
-			print_str(data->str_to_print, print_count);
-			i += data->length_of_symbol;
-			data->str_to_print = NULL;
-			data->length_of_symbol = NULL;
-			free(data);
+			translation = translate_flag(&str[i], args);
+			print_str(translation->content, print_count);
+			i += translation->length;
+			translation->content = NULL;
+			translation->length = NULL;
+			free(translation);
 		}
 		else
 			print_char(str[i], print_count);
 	}
 }
 
-static data_to_print	*translate(char *str, va_list args)
+static flag_translation	*translate_flag(char *str, va_list args)
 {
-	data_to_print	*data;
-	char			*corresponding_flag;
+	flag_translation	*translation;
+	char				*corresponding_flag;
+	char				*flag_translated;
 
 	corresponding_flag = NULL;
-	data = ft_calloc(1, sizeof(data_to_print));
+	translation = ft_calloc(1, sizeof(flag_translation));
 	if (!is_valid_flag(str))
 	{
-		data->str_to_print = "%";
-		data->length_of_symbol = 0;
-		return (data);
+		translation->content = "%";
+		translation->length = 0;
+		return (translation);
 	}
 	corresponding_flag = get_corresponding_flag(str);
-	return (data);
+	flag_translated = make_tranlation(corresponding_flag, args);
+	translation->content = flag_translated;
+	translation->length = ft_strlen(flag_translated) - 1;
+	free(flag_translated);
+	return (translation);
 }

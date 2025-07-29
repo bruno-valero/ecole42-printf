@@ -1,16 +1,17 @@
 #include "printf.h"
 #include "libft.h"
 
-static char	*basic_flags_tranlation(char *flag, va_list args, int *print_count);
+static char	*basic_flags_tranlation(char *flag, va_list args);
 static char	*char_to_str(char c);
 
-char	*make_tranlation(char *flag, va_list args, int *print_count)
+char	*make_tranlation(char *flag, va_list args)
 {
 	if (ft_strlen(flag) == 2)
-		return (basic_flags_tranlation(flag, args, print_count));
+		return (basic_flags_tranlation(flag, args));
+	return (NULL);
 }
 
-static char	*basic_flags_tranlation(char *flag, va_list args, int *print_count)
+static char	*basic_flags_tranlation(char *flag, va_list args)
 {
 	int		flag_len;
 
@@ -21,14 +22,16 @@ static char	*basic_flags_tranlation(char *flag, va_list args, int *print_count)
 		return (ft_strdup(va_arg(args, char *)));
 	if (!ft_strncmp("%d", flag, flag_len) || !ft_strncmp("%i", flag, flag_len))
 		return (itoa_base(va_arg(args, char *), "0123456789"));
-	if (!ft_strncmp("%u", flag, flag_len) || !ft_strncmp("%i", flag, flag_len))
+	if (!ft_strncmp("%u", flag, flag_len))
 		return (utoa_base(va_arg(args, unsigned int), "0123456789"));
-	if (!ft_strncmp("%x", flag, flag_len) || !ft_strncmp("%i", flag, flag_len))
+	if (!ft_strncmp("%x", flag, flag_len))
 		return (utoa_base(va_arg(args, unsigned int), "0123456789abcdef"));
-	if (!ft_strncmp("%X", flag, flag_len) || !ft_strncmp("%i", flag, flag_len))
+	if (!ft_strncmp("%X", flag, flag_len))
 		return (utoa_base(va_arg(args, unsigned int), "0123456789ABCDEF"));
-	if (!ft_strncmp("%p", flag, flag_len) || !ft_strncmp("%i", flag, flag_len))
-		return (ptoa(args, print_count));
+	if (!ft_strncmp("%p", flag, flag_len))
+		return (ptoa(args));
+	if (!ft_strncmp("%%", flag, flag_len))
+		return (ft_strdup("%"));
 }
 static char	*char_to_str(char c)
 {
