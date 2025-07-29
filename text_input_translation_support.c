@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:33 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:30:05 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 05:34:45 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static char	*basic_flags_tranlation(char *flag, va_list args)
 		return (ptoa(args));
 	if (!ft_strncmp("%%", flag, flag_len))
 		return (ft_strdup("%"));
+	return (NULL);
 }
 
 static char	*char_to_str(char c)

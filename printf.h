@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:27:04 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:28:47 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 05:37:04 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*utoa_base(unsigned int nbr, char *base);
 char	*ultoa_base(unsigned long nbr, char *base);
 char	*ptoa(va_list args);
 char	*make_tranlation(char *flag, va_list args);
-char	*handle_input_text(char *str, va_list args, int *print_count);
+void	handle_input_text(char *str, va_list args, int *print_count);
 int		ft_printf(char *str, ...);
 
 #endif

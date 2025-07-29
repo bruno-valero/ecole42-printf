@@ -6,19 +6,19 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:54 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:26:54 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 05:35:21 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void print_char(char c, int *print_count)
+void	print_char(char c, int *print_count)
 {
 	write(1, &c, 1);
 	(*print_count)++;
 }
 
-void print_str(char *str, int *print_count)
+void	print_str(char *str, int *print_count)
 {
 	while (*str)
 		print_char(*str++, print_count);

@@ -6,14 +6,14 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:14 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:26:20 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 05:37:08 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include "libft.h"
 
-int ft_printf(char *str, ...)
+int	ft_printf(char *str, ...)
 {
 	va_list	args;
 	int		print_count;

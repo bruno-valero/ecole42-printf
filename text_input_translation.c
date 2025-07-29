@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_inpu_text.c                                 :+:      :+:    :+:   */
+/*   text_input_translation.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:48 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:27:44 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 07:14:24 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static t_flag_translation	*translate_flag(char *str, va_list args);
 
-char	*handle_input_text(char *str, va_list args, int *print_count)
+void	handle_input_text(char *str, va_list args, int *print_count)
 {
 	int					i;
 	t_flag_translation	*translation;
@@ -28,9 +28,11 @@ char	*handle_input_text(char *str, va_list args, int *print_count)
 			translation = translate_flag(&str[i], args);
 			print_str(translation->content, print_count);
 			i += translation->length;
-			translation->content = NULL;
+			free(translation->content);
 			translation->length = 0;
 			free(translation);
+			if (!str[i])
+				break ;
 		}
 		else
 			print_char(str[i], print_count);
@@ -47,14 +49,15 @@ static t_flag_translation	*translate_flag(char *str, va_list args)
 	translation = ft_calloc(1, sizeof(t_flag_translation));
 	if (!is_valid_flag(str))
 	{
-		translation->content = "%";
+		translation->content = ft_strdup("%");
 		translation->length = 0;
 		return (translation);
 	}
 	corresponding_flag = get_corresponding_flag(str);
 	flag_translated = make_tranlation(corresponding_flag, args);
-	translation->content = flag_translated;
-	translation->length = ft_strlen(flag_translated) - 1;
+	translation->content = ft_strdup(flag_translated);
+	translation->length = ft_strlen(corresponding_flag) - 1;
+	free(corresponding_flag);
 	free(flag_translated);
 	return (translation);
 }
