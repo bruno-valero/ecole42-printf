@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:54 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:35:21 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 08:51:33 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ void	print_char(char c, int *print_count)
 	(*print_count)++;
 }
 
-void	print_str(char *str, int *print_count)
+void	print_str(char *str, int *print_count, int print_end_line)
 {
+	if (!*str && print_end_line)
+		print_char('\0', print_count);
+	else if (!*str && !print_end_line)
+		return ;
 	while (*str)
 		print_char(*str++, print_count);
 }

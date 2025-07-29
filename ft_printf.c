@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:14 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:37:08 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 09:04:49 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printf(char *str, ...)
 
 	print_count = 0;
 	va_start(args, str);
-	handle_input_text(str, args, &print_count);
+	text_input_translate_and_print(str, args, &print_count);
 	va_end(args);
 	return (print_count);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags_make_translation.c                           :+:      :+:    :+:   */
+/*   text_input_translation_support.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:33 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:34:45 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 08:24:04 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,10 @@ static char	*basic_flags_tranlation(char *flag, va_list args)
 
 static char	*char_to_str(char c)
 {
-	return (ft_strdup(&c));
+	char	*str;
+
+	str = &c;
+	str[1] = 0;
+	str = ft_strdup(&c);
+	return (str);
 }
