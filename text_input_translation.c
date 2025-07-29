@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:56:34 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:25:30 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:01:55 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ void	text_input_translate_and_print(
 {
 	int					i;
 	t_flag_translation	*translation;
+	t_list				*char_list;
+	t_list				*list_next;
 
+	char_list = ft_lstnew(NULL);
+	if (!char_list)
+		return ;
 	i = -1;
 	while (str[++i])
 	{
@@ -33,18 +38,47 @@ void	text_input_translate_and_print(
 				*print_count = -1;
 				return ;
 			}
-			print_str(translation->content, print_count,
-				translation->is_end_line);
+			if (!char_list->content)
+				char_list->content = translation;
+			else
+			{
+				list_next = ft_lstnew(translation);
+				if (!list_next)
+					return (ft_lstclear(&char_list, free_tanslation));
+				ft_lstadd_back(&char_list, list_next);
+			}
+			// print_str(translation->content, print_count,
+			// 	translation->is_end_line);
 			i += translation->length;
 			free(translation->content);
 			translation->length = 0;
-			free(translation);
+			// free(translation);
 			if (!str[i])
 				break ;
 		}
 		else
+		{
+			translation = malloc(sizeof(t_flag_translation));
+
+			if (!char_list->content)
+				char_list->content = translation;
+			else
+			{
+				list_next = ft_lstnew(translation);
+				if (!list_next)
+					return (ft_lstclear(&char_list, free_tanslation));
+				list_next->content = ;
+				ft_lstadd_back(&char_list, ft_lstnew(translation));
+			}
 			print_char(str[i], print_count);
+		}
 	}
+}
+
+void	free_tanslation(t_flag_translation *translation)
+{
+	free(translation->content);
+	free(translation);
 }
 
 static t_flag_translation	*translate_flag(char *str, va_list args)

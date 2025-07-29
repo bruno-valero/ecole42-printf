@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:33:15 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:34:37 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:59:16 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*itoa_base(int nbr, char *base);
 char	*utoa_base(unsigned int nbr, char *base);
 char	*ultoa_base(unsigned long nbr, char *base);
 char	*ptoa(va_list args);
+void	free_tanslation(t_flag_translation *translation);
 char	*make_tranlation(char *flag, va_list args);
 void	text_input_translate_and_print(
 			char *str, va_list args, int *print_count
