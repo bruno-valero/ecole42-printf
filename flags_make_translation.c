@@ -17,11 +17,11 @@ static char	*basic_flags_tranlation(char *flag, va_list args)
 
 	flag_len = 2;
 	if (!ft_strncmp("%c", flag, flag_len))
-		return (char_to_str(va_arg(args, char)));
+		return (char_to_str((char)va_arg(args, int)));
 	if (!ft_strncmp("%s", flag, flag_len))
 		return (ft_strdup(va_arg(args, char *)));
 	if (!ft_strncmp("%d", flag, flag_len) || !ft_strncmp("%i", flag, flag_len))
-		return (itoa_base(va_arg(args, char *), "0123456789"));
+		return (itoa_base(va_arg(args, int), "0123456789"));
 	if (!ft_strncmp("%u", flag, flag_len))
 		return (utoa_base(va_arg(args, unsigned int), "0123456789"));
 	if (!ft_strncmp("%x", flag, flag_len))

@@ -24,5 +24,6 @@ char	*ultoa_base(unsigned long nbr, char *base);
 char	*ptoa(va_list args);
 char	*make_tranlation(char *flag, va_list args);
 char	*handle_input_text(char *str, va_list args, int *print_count);
+int		ft_printf(char *str, ...);
 
 #endif

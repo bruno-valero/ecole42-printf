@@ -17,7 +17,7 @@ char	*handle_input_text(char *str, va_list args, int *print_count)
 			print_str(translation->content, print_count);
 			i += translation->length;
 			translation->content = NULL;
-			translation->length = NULL;
+			translation->length = 0;
 			free(translation);
 		}
 		else
