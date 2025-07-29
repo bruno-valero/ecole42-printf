@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:57 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:37:28 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:12:37 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,9 @@ int main()
 	return (0);
 }
  */
+
+ int main()
+ {
+	int result = printf("char= '%s' % \n", "\0");
+	printf("amount printed = '%d'\n", result);
+ }

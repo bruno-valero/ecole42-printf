@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:56:34 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 14:01:55 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:03:06 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 
 static t_flag_translation	*translate_flag(char *str, va_list args);
+static void					print_list(t_list *lst, int *print_count);
 
 void	text_input_translate_and_print(
 		char *str, va_list args, int *print_count
@@ -35,6 +36,7 @@ void	text_input_translate_and_print(
 			translation = translate_flag(&str[i], args);
 			if (translation->is_error)
 			{
+				ft_lstclear(&char_list, free_tanslation);
 				*print_count = -1;
 				return ;
 			}
@@ -64,21 +66,16 @@ void	text_input_translate_and_print(
 				char_list->content = translation;
 			else
 			{
+				translation->content = char_to_str(str[i]);
 				list_next = ft_lstnew(translation);
 				if (!list_next)
 					return (ft_lstclear(&char_list, free_tanslation));
-				list_next->content = ;
-				ft_lstadd_back(&char_list, ft_lstnew(translation));
+				ft_lstadd_back(&char_list, list_next);
 			}
-			print_char(str[i], print_count);
+			// print_char(str[i], print_count);
 		}
+		print_list(char_list, print_count);
 	}
-}
-
-void	free_tanslation(t_flag_translation *translation)
-{
-	free(translation->content);
-	free(translation);
 }
 
 static t_flag_translation	*translate_flag(char *str, va_list args)
@@ -106,4 +103,28 @@ static t_flag_translation	*translate_flag(char *str, va_list args)
 	free(corresponding_flag);
 	free(flag_translated);
 	return (translation);
+}
+
+void	free_tanslation(t_flag_translation *translation)
+{
+	free(translation->content);
+	free(translation);
+}
+
+static void	print_list(t_list *lst, int *print_count)
+{
+	t_flag_translation	*translation;
+	t_list				*temp;
+
+	temp = lst;
+	translation = NULL;
+	if (!temp)
+		return (print_str("(nil)", print_count, 0));
+	while (temp)
+	{
+		translation = (t_flag_translation *)temp->content;
+		print_str(translation, print_count, translation->is_end_line);
+		temp = temp->next;
+	}
+	ft_lstclear(lst, free_tanslation);
 }

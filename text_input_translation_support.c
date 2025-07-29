@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:33 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:10:25 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:36:54 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "libft.h"
 
 static char	*basic_flags_tranlation(char *flag, va_list args);
-static char	*char_to_str(char c);
 
 char	*make_tranlation(char *flag, va_list args)
 {
@@ -47,7 +46,7 @@ static char	*basic_flags_tranlation(char *flag, va_list args)
 	return (NULL);
 }
 
-static char	*char_to_str(char c)
+char	*char_to_str(char c)
 {
 	char	*str;
 
