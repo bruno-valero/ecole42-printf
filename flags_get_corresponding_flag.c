@@ -6,11 +6,10 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:36 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:11:50 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:48:51 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 static void	compare_flags(char **flags, char *flag,

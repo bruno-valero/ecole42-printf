@@ -6,15 +6,15 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:33 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:10:25 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/30 08:59:03 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 static char	*basic_flags_tranlation(char *flag, va_list args);
 static char	*char_to_str(char c);
+static char	*handle_str(char *str);
 
 char	*make_tranlation(char *flag, va_list args)
 {
@@ -31,7 +31,7 @@ static char	*basic_flags_tranlation(char *flag, va_list args)
 	if (!ft_strncmp("%c", flag, flag_len))
 		return (char_to_str((char)va_arg(args, int)));
 	if (!ft_strncmp("%s", flag, flag_len))
-		return (ft_strdup(va_arg(args, char *)));
+		return (handle_str(va_arg(args, char *)));
 	if (!ft_strncmp("%d", flag, flag_len) || !ft_strncmp("%i", flag, flag_len))
 		return (itoa_base(va_arg(args, int), "0123456789"));
 	if (!ft_strncmp("%u", flag, flag_len))
@@ -55,4 +55,11 @@ static char	*char_to_str(char c)
 	str[1] = 0;
 	str = ft_strdup(&c);
 	return (str);
+}
+
+static char	*handle_str(char *str)
+{
+	if (!str)
+		return (ft_strdup("(null)"));
+	return (ft_strdup(str));
 }

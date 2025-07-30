@@ -6,7 +6,7 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:49:18 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/26 14:28:09 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/30 07:58:16 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	data = (int *)ft_calloc(ft_strlen((char *)s), sizeof(int));
+	data = (int *)ft_calloc(ft_strlen((char *)s) + 1, sizeof(int));
 	if (!data)
 		return (NULL);
 	data_count = 0;

@@ -6,13 +6,14 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:33:15 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:34:37 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/30 09:02:33 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "libft.h"
 # include <stdarg.h>
 
 typedef struct param_data
@@ -42,6 +43,6 @@ char	*make_tranlation(char *flag, va_list args);
 void	text_input_translate_and_print(
 			char *str, va_list args, int *print_count
 			);
-int		ft_printf(char *str, ...);
+int		ft_printf(const char *str, ...);
 
 #endif

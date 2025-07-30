@@ -6,11 +6,11 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:54 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 08:51:33 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:48:55 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void	print_char(char c, int *print_count)
 {

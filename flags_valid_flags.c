@@ -6,11 +6,10 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:29 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:33:01 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/30 08:47:19 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "ft_printf.h"
 
 static int	join_flags(char **flags, char **complete_flags);

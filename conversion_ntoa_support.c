@@ -6,11 +6,11 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 05:26:43 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 05:31:37 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:56:01 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void	handle_base(char *result, char *base, int len_nbr, unsigned long number)
 {

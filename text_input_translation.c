@@ -6,12 +6,11 @@
 /*   By: brunofer <brunofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:56:34 by brunofer          #+#    #+#             */
-/*   Updated: 2025/07/29 13:25:30 by brunofer         ###   ########.fr       */
+/*   Updated: 2025/07/30 09:11:35 by brunofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 static t_flag_translation	*translate_flag(char *str, va_list args);
 
@@ -19,15 +18,13 @@ void	text_input_translate_and_print(
 		char *str, va_list args, int *print_count
 		)
 {
-	int					i;
 	t_flag_translation	*translation;
 
-	i = -1;
-	while (str[++i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			translation = translate_flag(&str[i], args);
+			translation = translate_flag(str, args);
 			if (translation->is_error)
 			{
 				*print_count = -1;
@@ -35,15 +32,16 @@ void	text_input_translate_and_print(
 			}
 			print_str(translation->content, print_count,
 				translation->is_end_line);
-			i += translation->length;
+			str += translation->length;
 			free(translation->content);
 			translation->length = 0;
 			free(translation);
-			if (!str[i])
+			if (!*str)
 				break ;
 		}
 		else
-			print_char(str[i], print_count);
+			print_char(*str, print_count);
+		str++;
 	}
 }
 
