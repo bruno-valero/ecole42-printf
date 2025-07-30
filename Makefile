@@ -1,7 +1,7 @@
 NAME = libftprintf.a
 LIBFT = libft/libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Ilibft
+CFLAGS = -Wall -Wextra -Werror -I libft
 
 SRCS = conversion_ntoa_support.c\
 	conversion_ntoa.c\
